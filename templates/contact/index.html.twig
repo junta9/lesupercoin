@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Formulaire de contact{% endblock %}
+
+{% block body %}
+        <!-- Section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <h1>Formulaire de contact</h1>
+
+                    {{ form_start(formContact) }}
+                        {{ form_row(formContact.email) }}
+                        {{ form_row(formContact.object) }}
+                        {{ form_row(formContact.message) }}
+
+                        <input class="btn btn-success" type="submit" value="Enregistrer">
+                    {{ form_end(formContact) }}
+
+            </div>
+        </section>
+{% endblock %}
