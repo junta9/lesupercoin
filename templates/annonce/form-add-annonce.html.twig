@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}LeSuperCoin - Formulaire{% endblock %}
+
+
+{% block body %}
+    <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <h1>Formulaire d'ajout d'une annonce</h1>
+
+                {{ form(formAnnonce) }}
+
+            </div>
+        </section>
+{% endblock %}

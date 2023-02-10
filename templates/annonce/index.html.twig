@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        <!-- Section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+
+                {# Affichage du message flash #}
+                {% for message in app.flashes('add_success') %}
+                    <div class="alert alert-success alert-dismissible fade show">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+
+                {# Affichage du message flash #}
+                {% for message in app.flashes('edit_success') %}
+                    <div class="alert alert-warning alert-dismissible fade show">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+
+                {# Affichage du message flash #}
+                {# {% for message in app.flashes('delete_success') %}
+                    <div class="alert alert-danger alert-dismissible fade show">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}                                #}
+
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+                    {% for annonce in annonces %}
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Sale badge-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <!-- Product image-->
+                            <img class="card-img-top" src="{{ annonce.image }}" alt="..." />
+                            <!-- annonce details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- annonce name-->
+                                    <h5 class="fw-bolder">{{ annonce.title }}</h5>
+                                    <!-- annonce reviews-->
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <!-- annonce price-->
+                                    <span class="text-muted text-decoration-line-through"></span>
+                                    {{ annonce.prix }} €
+                                </div>
+                            </div>
+                            <!-- annonce actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ path("annonce_id", {id: annonce.id}) }}">Voir plus</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                   
+                </div>
+            </div>
+        </section>
+{% endblock %}

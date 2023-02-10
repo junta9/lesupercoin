@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %} {% block title %}Register{% endblock %} {% block
+header %}{% endblock %} {% block body %}
+<div class="w-100 h-100  d-flex justify-content-center align-items-center flex-column mt-5 mb-5 pt-5 pb-5">
+    <div class="w-50 d-flex justify-content-center flex-column m-5 p-5 rounded-3 box-shad" style="background-color: #f56b2a!important;">
+
+        <h1 class="text-center">S'enregistrer</h1>
+        
+        {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{
+            form_row(registrationForm.plainPassword, {
+                label: "Password"
+            })
+        }}
+        {# form_row(registrationForm.agreeTerms) #}
+        
+        <button type="submit" class="btn btn-primary w-100 mt-3">S'enregistrer</button>
+        {{ form_end(registrationForm) }}
+        <p class="mt-3 fs-4">Si vous avez déja un compte, cliquez <a href="{{ path('app_login') }}" class="text-decoration-none">ici</a></p>
+    </div>
+</div>
+{% endblock %} {% block footer %}{% endblock %}
