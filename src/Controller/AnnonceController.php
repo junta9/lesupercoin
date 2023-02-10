@@ -22,6 +22,9 @@ class AnnonceController extends AbstractController
      */
     public function index(ManagerRegistry $doctrine): Response
     {
+        #Ne peut pas afficher la page si pas de role admin
+        $this->denyAccessUnlessGranted("ROLE_ADMIN");
+
         $annonces = $doctrine->getRepository(Annonce::class)->findAll();
         return $this->render("annonce/index.html.twig", [
             "annonces" => $annonces

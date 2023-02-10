@@ -42,6 +42,16 @@
                     </form>
                 </div>
             </div>
+            {% if is_granted('ROLE_ADMIN') %}
+            <h4>Bonjour Admin</h4>
+            {% endif %}
+            <!-- pour afficher le bouton deconnexion que si l'utilisateur est connecté  -->
+            {% if app.user %}
+            <a href="{{ path('app_logout') }}" class="btn btn-dark mx-5 px-5">Se deconnecter</a>
+            {% else %}
+            <a href="{{ path('app_register') }}" class="btn btn-dark mx-5 px-5">S'inscrire</a>
+            <a href="{{ path('app_login') }}" class="btn btn-dark mx-5 px-5">Se connecter</a>
+            {% endif %}
         </nav>
 
         {% block header %}
